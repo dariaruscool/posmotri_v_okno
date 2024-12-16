@@ -44,7 +44,6 @@ ol {
   flex-direction: row;
   align-items: end;
   width: 1140px;
-  height: 534px;
   gap: 30px;
 }
 
@@ -56,30 +55,32 @@ ol {
 }
 
 .content__list {
-  height: 534px;
+  height: 298px;
   overflow: auto;
-  display: flex;
-  flex-direction: column;
   position: relative;
 }
 
 .content__details {
-  width: 100%;
-  height: 100%;
+  block-size: 100%;
+  inline-size: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  gap: 26px;
 }
 
 .result__video-container {
   width: 711px;
-  height: 402px;
-  padding-bottom: 16px;
+  height: 386px;
+  margin-bottom: 16px;
   position: relative;
 }
 
 .result__video {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .content__list-item {
@@ -90,30 +91,28 @@ ol {
   margin-bottom: 0;
 }
 
-.content__list-item:first-child {
-  margin-top: 30px;
-}
-
 .content__video-card {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  justify-content: space-between;
 }
 
 .content__video-card-thumbnail {
-  width: 194px;
+  min-width: 194px;
   height: 103px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .content__video-card-description-container {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  flex-grow: 1;
 }
 
 .search-form__fieldset-title {
-  font-family: Fira Sans Condensed, sans-serif;
+  font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 21.6px;
@@ -126,6 +125,7 @@ ol {
   font-weight: 700;
   line-height: 70.5px;
   text-align: left;
+  text-transform: uppercase;
 }
 
 .content__accent {
@@ -135,6 +135,8 @@ ol {
 .content__card-link {
   text-decoration: none;
   color: rgba(255, 255, 255, 1);
+  display: block;
+  margin: 2px;
 }
 
 .content__video-card-title {
@@ -143,10 +145,15 @@ ol {
   font-weight: 700;
   line-height: 30px;
   text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 192px;
+  text-transform: uppercase;
 }
 
 .content__video-card-description {
-  font-family: Fira Sans Condensed, sans-serif;
+  font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 16.2px;
@@ -171,13 +178,14 @@ fieldset {
 .search-form__checkbox-list {
   display: flex;
   width: 212px;
-  height: 49px;
   justify-content: space-between;
 }
 
 .search-form__label {
   width: fit-content;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .search-form__checkbox-list, .button {
@@ -188,6 +196,7 @@ fieldset {
   appearance: none;
   width: 225px;
   height: 27px;
+  color:rgba(255, 255, 255, 1);
   text-align: start;
   background-color: transparent;
   border-top: 1px solid rgba(255, 255, 255, 1);
@@ -196,8 +205,8 @@ fieldset {
   border-left: none;
 }
 
-input::placeholder, input:hover {
-  font-family: Fira Sans Condensed, sans-serif;
+input::placeholder {
+  font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 21.6px;
@@ -224,7 +233,7 @@ input::placeholder, input:hover {
 .button {
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 1);
-  font-family: Fira Sans Condensed;
+  font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
   font-weight: 700;
   line-height: 21.6px;
@@ -235,7 +244,7 @@ input::placeholder, input:hover {
 .search-form__submit-button {
   width: 194px;
   height: 34px;
-  margin-top: 20px;
+  align-self: flex-end;
 }
 
 .more-button {
@@ -253,13 +262,8 @@ input:has(:focus-visible) {
   outline-offset: 2px;
 }
 
-
 .search-form__checkbox-list .search-form__label:hover, .button:hover {
   text-decoration: underline;
-}
-
-input:hover {
-  caret-color: rgba(255, 255, 255, 0.7);
 }
 
 .button:active {
@@ -269,7 +273,6 @@ input:hover {
 .button:focus-visible {
   outline: 1px solid rgba(255, 255, 255, 1);
   outline-offset: 1px;
-  /* border: 1px solid rgba(255, 255, 255, 1); */
 }
 
 input:active {
@@ -283,19 +286,18 @@ input:active {
 
 input[type='checkbox']:checked + span {
   background: rgba(255, 255, 255, 1);
-  width: 15px;
-  height: 15px;
+  width: 17px;
+  height: 17px;
   outline: 1px solid rgba(255, 255, 255, 1);
-  outline-offset: 3px;
+  outline-offset: 1px;
 }
 
 .content__card-link_current {
   background-color: rgba(84, 80, 80, 1);
 }
 
-.content__card-link {
-  display: block;
-  margin: 2px;
+.content__card-link:active {
+  background-color: rgba(84, 80, 80, 1);
 }
 
 .content__card-link:focus {
@@ -308,9 +310,5 @@ input[type='checkbox']:checked + span {
 
 .content__card-link:hover {
   text-decoration: underline;
-  text-underline-offset: 6px;
-}
-
-.content__card-link:active {
-  background-color: rgba(84, 80, 80, 1);
+  text-underline-offset: 2px;
 }
